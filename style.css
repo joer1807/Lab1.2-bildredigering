@@ -1,11 +1,134 @@
 
 
-body {
+body {   /*heltäckande grundfärg*/
     background-color: #8ac4bb;
 }
 
-.hero-section {
+.hero-section {  /*header bakgrundsfärg*/
     background-color: #5fa0b4;
     padding: 20px;
     text-align: center;
+}
+
+.Hero-section {
+    /* bild direkt som bakgrund */
+    background-image: url('images/headerDino.png');
+    
+    /* bilden fyller hela sektionen utan att sträckas ut */
+    background-size: cover;
+    
+    /* Centrerar bilden så att motivet alltid syns i mitten */
+    background-position: center;
+    
+    /* hur hög hero section är */
+    height: 400px; 
+}
+.hero-section h1 {  /*header textstorlek*/
+    font-size: 36px;
+    color: #fff;
+    margin: 0;
+}
+
+.hero-logo {
+    width: 90px;       
+    height: auto;      /* Behåller logons proportioner */
+    display: block;    /* Gör det lättare att flytta runt och marginalisera logon */
+    margin: 10px auto; /* Centrerar logon och ger lite luft runt om */
+}
+
+/* Navigation bar styling */
+nav ul {
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 15px;
+}
+
+nav a {
+    /* navigeringsmenyns länkar */
+    font-size: 30px;
+    text-decoration: none;
+    transition: all 0.5s ease;
+    display: inline-block;
+    background: linear-gradient(90deg, rgb(40, 44, 52), rgb(14, 85, 105), rgb(40, 44, 52));
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/*grid sectionen för bilderna */
+
+/* stora wrapperna-  en maxbredd på hela bildgalleriet på skärmen */
+.picture-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Aktiverar CSS Grid på sektionen som innehåller bildboxarna */
+#Pictures {
+    display: grid;
+    /* Skapar 3 jämna kolumner på datorskärmar (1fr = 1 fraction/del var) */
+    grid-template-columns: repeat(3, 1fr);
+    /* Avstånd mellan bildboxarna */
+    gap: 20px;
+}
+
+/* Stylar varje enskild bildbox med bild och text */
+.picture-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f9f9f9;
+    padding: 15px;
+    gap:15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Ger en mjuk, snygg skugga */
+}
+
+/* bilderna  */
+.picture-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* Texten under bilderna */
+.picture-container p {
+    margin-top: 12px;
+    font-family: sans-serif;
+    font-weight: 600;
+    color: #333;
+}
+
+
+
+
+/* -----Media query för att göra layouten responsiv på mindre skärmar--- */
+@media (min-width: 768px) {
+    
+    .Hero-section {
+        height: 400px; /* Headern blir högre på datorn */
+    }
+
+    .hero-logo {
+        width: 90px; /* Loggan blir större på datorn */
+    }
+
+    /* Nu ändrar vi till 3 kolumner bredvid varandra! */
+    #Pictures {
+        grid-template-columns: repeat(3, 1fr); 
+        gap: 20px;
+        padding: 30px;
+    }
+
+    .picture-container img {
+        height: 250px; /* Bilderna får mer plats på höjden på en dator */
+    }
 }
