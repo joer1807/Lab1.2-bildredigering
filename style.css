@@ -16,11 +16,9 @@ body {   /*heltäckande grundfärg*/
     text-align: center; 
 }
 
-
-
-.hero-section h1 {  /*header textstorlek*/
+.hero-title {  /*header textstorlek - Rättat till stort H för att matcha klassen ovan */
     font-size: 3px;
-    color: #fff;
+    color: #0a0a0a;
     margin: 0;
     text-align: center;
     padding: 10px 20px;
@@ -36,22 +34,22 @@ body {   /*heltäckande grundfärg*/
 
  .hero-title {
     font-size: 36px; /* Stor textstorlek för titeln */
-    color: #0e0d0d;     /* Vit textfärg */ 
+    color: #0a0a0a;      /* Vit textfärg - Korrigerat färgkoden efter din kommentar */ 
     text-align: center; /* Centrerar texten */
     margin-top: 10px;   /* Litet avstånd ovanför texten */
-    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8); /* Gör texten lättare att läsa mot bakgrunden */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* Justerad till mörk skugga så vit text syns mot ljus bakgrund */
  }
+ 
  .header-text {
     text-align: center; /* Centrerar texten */
     margin-top: 10px;   /* Litet avstånd ovanför texten */
-    color: #0e0d0d;        /* Vit textfärg */
+    color: #0a0a0a;           /* Vit textfärg - Korrigerat färgkoden efter din kommentar */
     font-size: 18px;    /* Normal textstorlek */
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* Gör texten lättare att läsa mot bakgrunden */   
  }
 
 /* Navigation bar styling */
 nav ul {
-   
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -74,7 +72,6 @@ nav a {
     -webkit-text-fill-color: transparent;
 }
 
-
 /*grid sectionen för bilderna */
 
 /* stora wrapperna-  en maxbredd på hela bildgalleriet på skärmen */
@@ -94,7 +91,7 @@ main p {
 /* Aktiverar CSS Grid på sektionen som innehåller bildboxarna */
 #Pictures {
     display: grid;
-    /* Skapar 3 jämna kolumner på datorskärmar (1fr = 1 fraction/del var) */
+    /* Skapar 1 kolumn som standard (bra för mobil) */
     grid-template-columns: 1fr;
     /* Avstånd mellan bildboxarna */
     gap: 20px;
@@ -129,19 +126,14 @@ main p {
 }
 
 
-
-
-/* -----Media query för att göra layouten responsiv på mindre skärmar--- */
+/* -----Media query för att göra layouten responsiv på större skärmar (Datorer/Surfplattor)--- */
 @media (min-width: 768px) {
     
-     .Hero-section {
-        max-width: 100%;  /*hela vägen ut till skärmkanterna */
-        margin: 0; /* Tar bort centreringen av själva boxen */
-        
-        height: 600px;     /* fast höjd på datorn */
+    .Hero-section {
+        max-width: 100%;  /* Hela vägen ut till skärmkanterna */
+        margin: 0;        /* Tar bort centreringen av själva boxen */
+        height: 600px;     /* Fast höjd på datorn */
         padding: 40px 20px;  /* Minskar luften så att texten inte trycks ut utanför bilden */
-        
-        background-size: cover;      /* Bilden täcker hela bredden */
         background-position: center 35%; /* Justera siffran (t.ex. 20%, 35%, 50%) för att flytta bilden upp/ner i höjdled så att dinosaurien syns perfekt! */
     }
 
@@ -149,19 +141,25 @@ main p {
         width: 90px; /* Loggan blir större på datorn */
     }
 
-    .Hero-section h1 {
-        font-size: 54px;    /* Mycket större  på datorskärmar */
-        text-align: center; /* texten centrerad även på stor skärm */
+    .hero-title {
+        font-size: 54px;    /* Mycket större på datorskärmar */
         margin-top: 20px;   /* Skapar avstånd från logotypen/menyn ovanför */
+        color: #0a0a0a; /* Ändrar textfärgen till svart på datorn för bättre kontrast mot bakgrunden */
     }
 
-    .hero-title {
-        font-size: 54px; /* Blir större och maffigare på datorn, men förblir centrerad */
+    .header-text {
+        font-size: 24px; /* Gör introduktionstexten större på datorn */
+        color: #0a0a0a;  /* Ändrar textfärgen till svart på datorn för bättre kontrast mot bakgrunden */
+    }
+
+
+    main p {
+        font-size: 22px; /* Gör introduktionstexten större på datorn */
     }
 
     nav ul {
-        flex-direction: row; 
-        gap: 30px;
+        flex-direction: row; /* Lägger menylänkarna på en vågrät rad istället för en vertikal lista */
+        gap: 30px;           /* Mer luft mellan länkarna på datorn */
     }
 
     /* Nu ändrar vi till 3 kolumner bredvid varandra! */
