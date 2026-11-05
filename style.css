@@ -70,6 +70,7 @@ nav a {
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+
 }
 
 /*grid sectionen för bilderna */
@@ -137,6 +138,11 @@ main p {
         background-position: center 35%; /* Justera siffran (t.ex. 20%, 35%, 50%) för att flytta bilden upp/ner i höjdled så att dinosaurien syns perfekt! */
     }
 
+    .Hero-section {
+        background-image: url('images/headerDino.png'); /* Stor bild för dator */
+        height: 500px; 
+
+
     .hero-logo {
         width: 90px; /* Loggan blir större på datorn */
     }
@@ -160,6 +166,7 @@ main p {
     nav ul {
         flex-direction: row; /* Lägger menylänkarna på en vågrät rad istället för en vertikal lista */
         gap: 30px;           /* Mer luft mellan länkarna på datorn */
+       font-size: 30px; !important      /* Länkarna blir större på datorn */
     }
 
     /* Nu ändrar vi till 3 kolumner bredvid varandra! */
