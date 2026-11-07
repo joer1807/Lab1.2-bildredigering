@@ -1,28 +1,30 @@
-
-
 body {   /*heltäckande grundfärg*/
-    background-color: #8ac4bb;
+    background-color: #e8efe9; /* Mjuk naturgrön bakgrund som skiner igenom headern */
     margin: 0;
     font-family: sans-serif;
 }
 
 .Hero-section {
-    background-color: #5fa0b4;
-    background-image: url('images/headerDino.png');
+    position: relative;              /* Krävs för att den genomskinliga bilden ska ligga rätt */
+    width: 100%;                     /* Täcker hela bredden av webbläsarfönstret */
+    background-color: transparent;   /* Låter sidans grundfärg skina igenom */
+    min-height: 400px;               /* Höjd så allt får plats på mobilen */
+    text-align: center;
+    padding-top: 15px;
+    z-index: 1;
+}
+
+/* Din egen headerbild som ett separat lager med sänkt opacitet */
+.Hero-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('images/headerDino.png'); /* Byt ut till ditt egna filnamn (utanför bildmappen) */
     background-size: cover;          /* Fyller ut hela skärmen på mobilen */
     background-position: center;     /* Centrerar motivet */
     background-repeat: no-repeat;
-    height: 400px;                   /* Låser höjden till 400px så allt får plats på mobilen */
-    text-align: center; 
-}
-
-.hero-title {  /*header textstorlek - Rättat till stort H för att matcha klassen ovan */
-    font-size: 3px;
-    color: #0a0a0a;
-    margin: 0;
-    text-align: center;
-    padding: 10px 20px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* Gör texten lättare att läsa mot dinosauriebilden */
+    opacity: 0.35;                   /* Sänkt opacitet så att bakgrundsfärgen skiner igenom */
+    z-index: -1;                     /* Lägger bilden bakom text och logga */
 }
 
 .hero-logo {
@@ -32,21 +34,21 @@ body {   /*heltäckande grundfärg*/
     margin: 10px auto; /* Centrerar logon och ger lite luft runt om */
 }
 
- .hero-title {
-    font-size: 36px; /* Stor textstorlek för titeln */
-    color: #0a0a0a;      /* Vit textfärg - Korrigerat färgkoden efter din kommentar */ 
+.hero-title {  /*header textstorlek  */
+    font-size: 36px;   /* Stor textstorlek för titeln */
+    color: #141c16;    /* Mörk textfärg som syns tydligt mot den ljusa, genomskinliga bakgrunden */
+    margin: 10px 0 0 0;/* Litet avstånd ovanför texten */
+    text-align: center;/* Centrerar texten */
+    padding: 10px 20px;
+}
+
+.header-text {
     text-align: center; /* Centrerar texten */
     margin-top: 10px;   /* Litet avstånd ovanför texten */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* Justerad till mörk skugga så vit text syns mot ljus bakgrund */
- }
- 
- .header-text {
-    text-align: center; /* Centrerar texten */
-    margin-top: 10px;   /* Litet avstånd ovanför texten */
-    color: #0a0a0a;           /* Vit textfärg - Korrigerat färgkoden efter din kommentar */
+    color: #243027;     /* Mörk textfärg som är lätt att läsa mot bakgrunden */
     font-size: 18px;    /* Normal textstorlek */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* Gör texten lättare att läsa mot bakgrunden */   
- }
+    padding: 0 20px;
+}
 
 /* Navigation bar styling */
 nav ul {
@@ -62,15 +64,18 @@ nav ul {
 
 nav a {
     /* navigeringsmenyns länkar */
-    font-size: 30px;
+    color: #ffffff;
+    background-color: #2c4a38; /* Mörkgrön bakgrundsplatta ger hög kontrast mot headern */
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 22px;
     text-decoration: none;
     transition: all 0.5s ease;
     display: inline-block;
-    background: linear-gradient(90deg, rgb(40, 44, 52), rgb(14, 85, 105), rgb(40, 44, 52));
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+}
 
+nav a:hover {
+    background-color: #c85a17; /* Varm kontrastfärg när man håller muspekaren över länken */
 }
 
 /*grid sectionen för bilderna */
@@ -85,7 +90,7 @@ nav a {
 main p {
     text-align: center;
     font-size: 18px;
-    color: #0b0a0a;
+    color: #1c241e;
     margin-bottom: 20px;
 }
 
@@ -103,27 +108,31 @@ main p {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
     padding: 15px;
-    gap:15px;
+    gap: 15px;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Ger en mjuk, snygg skugga */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08); /* Ger en mjuk, snygg skugga */
+    min-width: 0;
 }
 
 /* bilderna  */
 .picture-container img {
     width: 100%;
-    height: auto;
-    object-fit: cover;
+    height: 250px;
+    object-fit: contain;
+    background-color: #f4f7f5;
     border-radius: 4px;
+    display: block;
 }
+
 
 /* Texten under bilderna */
 .picture-container p {
-    margin-top: 12px;
+    margin: 0;
     font-family: sans-serif;
     font-weight: 600;
-    color: #333;
+    color: #1c241e;
 }
 
 
@@ -131,17 +140,16 @@ main p {
 @media (min-width: 768px) {
     
     .Hero-section {
-        max-width: 100%;  /* Hela vägen ut till skärmkanterna */
-        margin: 0;        /* Tar bort centreringen av själva boxen */
-        height: 600px;     /* Fast höjd på datorn */
+        max-width: 100%;     /* Hela vägen ut till skärmkanterna */
+        margin: 0;           /* Tar bort centreringen av själva boxen */
+        height: 500px;       /* Fast höjd på datorn */
         padding: 40px 20px;  /* Minskar luften så att texten inte trycks ut utanför bilden */
-        background-position: center 35%; /* Justera siffran (t.ex. 20%, 35%, 50%) för att flytta bilden upp/ner i höjdled så att dinosaurien syns perfekt! */
+        box-sizing: border-box;
     }
 
-    .Hero-section {
-        background-image: url('images/headerDino.png'); /* Stor bild för dator */
-        height: 500px; 
-
+    .Hero-section::before {
+        background-position: center 35%; /* Justera siffran (t.ex. 20%, 35%, 50%) för att flytta bilden upp/ner i höjdled så att motivet syns perfekt! */
+    }
 
     .hero-logo {
         width: 90px; /* Loggan blir större på datorn */
@@ -150,14 +158,13 @@ main p {
     .hero-title {
         font-size: 54px;    /* Mycket större på datorskärmar */
         margin-top: 20px;   /* Skapar avstånd från logotypen/menyn ovanför */
-        color: #0a0a0a; /* Ändrar textfärgen till svart på datorn för bättre kontrast mot bakgrunden */
+        color: #141c16;     /* Mörk textfärg på datorn för tydlig kontrast */
     }
 
     .header-text {
         font-size: 24px; /* Gör introduktionstexten större på datorn */
-        color: #0a0a0a;  /* Ändrar textfärgen till svart på datorn för bättre kontrast mot bakgrunden */
+        color: #243027;  /* Mörk textfärg på datorn för tydlig kontrast */
     }
-
 
     main p {
         font-size: 22px; /* Gör introduktionstexten större på datorn */
@@ -166,7 +173,10 @@ main p {
     nav ul {
         flex-direction: row; /* Lägger menylänkarna på en vågrät rad istället för en vertikal lista */
         gap: 30px;           /* Mer luft mellan länkarna på datorn */
-       font-size: 30px; !important      /* Länkarna blir större på datorn */
+    }
+
+    nav a {
+        font-size: 24px;     /* Länkarna blir större på datorn */
     }
 
     /* Nu ändrar vi till 3 kolumner bredvid varandra! */
@@ -174,10 +184,5 @@ main p {
         grid-template-columns: repeat(3, 1fr); 
         gap: 20px;
         padding: 30px;
-    }
-
-    .picture-container img {
-        height: 250px;        
-        object-fit: cover;    
     }
 }
