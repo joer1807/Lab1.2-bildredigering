@@ -23,7 +23,7 @@ body {   /*heltäckande grundfärg*/
     background-size: cover;          /* Fyller ut hela skärmen på mobilen */
     background-position: center;     /* Centrerar motivet */
     background-repeat: no-repeat;
-    opacity: 0.35;                   /* Sänkt opacitet så att bakgrundsfärgen skiner igenom */
+    opacity: 0.45;                   /* Sänkt opacitet så att bakgrundsfärgen skiner igenom */
     z-index: -1;                     /* Lägger bilden bakom text och logga */
 }
 
@@ -78,6 +78,15 @@ nav a:hover {
     background-color: #c85a17; /* Varm kontrastfärg när man håller muspekaren över länken */
 }
 
+
+#AboutMe {
+    text-align: center;
+    margin: 20px auto;
+    max-width: 800px;
+    padding: 20px;
+}
+
+
 /*grid sectionen för bilderna */
 
 /* stora wrapperna-  en maxbredd på hela bildgalleriet på skärmen */
@@ -88,6 +97,7 @@ nav a:hover {
 }
 
 main p {
+    font-family: sans-serif;
     text-align: center;
     font-size: 18px;
     color: #1c241e;
@@ -105,6 +115,7 @@ main p {
 
 /* Stylar varje enskild bildbox med bild och text */
 .picture-container {
+    font-family: sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -114,6 +125,15 @@ main p {
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.08); /* Ger en mjuk, snygg skugga */
     min-width: 0;
+}
+
+.picture-container p {
+    margin: 0;
+    font-family: sans-serif;
+    font-weight: normal;    /* Ändrat från 600 så att texten inte blir fet */
+    font-size: 16px;        /* Hindrar att texten blir för stor på datorn */
+    line-height: 1.5;       /* Ger luft mellan raderna för lättare läsning */
+    color: #1c241e;
 }
 
 /* bilderna  */
