@@ -14,12 +14,12 @@ body {   /*heltäckande grundfärg*/
     z-index: 1;
 }
 
-/* Din egen headerbild som ett separat lager med sänkt opacitet */
+/* headerbild separat lager med sänkt opacitet */
 .Hero-section::before {
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url('images/headerDino.png'); /* Byt ut till ditt egna filnamn (utanför bildmappen) */
+    background-image: url('images/headerDino.png');
     background-size: cover;          /* Fyller ut hela skärmen på mobilen */
     background-position: center;     /* Centrerar motivet */
     background-repeat: no-repeat;
@@ -86,6 +86,14 @@ nav a:hover {
     padding: 20px;
 }
 
+#AboutMe img {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    margin: 0 auto 20px; 
+}
 
 /*grid sectionen för bilderna */
 
