@@ -4,6 +4,11 @@ body {   /*heltäckande grundfärg*/
     font-family: sans-serif;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 .Hero-section {
     position: relative;              /* Krävs för att den genomskinliga bilden ska ligga rätt */
     width: 100%;                     /* Täcker hela bredden av webbläsarfönstret */
@@ -47,7 +52,7 @@ body {   /*heltäckande grundfärg*/
     margin-top: 10px;   /* Litet avstånd ovanför texten */
     color: #243027;     /* Mörk textfärg som är lätt att läsa mot bakgrunden */
     font-size: 18px;    /* Normal textstorlek */
-    padding: 0 20px;
+    padding: 20px;
 }
 
 /* Navigation bar styling */
@@ -170,7 +175,7 @@ main p {
     .Hero-section {
         max-width: 100%;     /* Hela vägen ut till skärmkanterna */
         margin: 0;           /* Tar bort centreringen av själva boxen */
-        height: 500px;       /* Fast höjd på datorn */
+        min-height: 500px;       /* Fast höjd på datorn */
         padding: 40px 20px;  /* Minskar luften så att texten inte trycks ut utanför bilden */
         box-sizing: border-box;
     }
